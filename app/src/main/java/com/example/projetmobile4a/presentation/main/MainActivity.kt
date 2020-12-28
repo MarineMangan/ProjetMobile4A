@@ -1,5 +1,6 @@
 package com.example.projetmobile4a.presentation.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -16,10 +17,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainViewModel.loginLiveData.observe(this, Observer { it ->
+       mainViewModel.loginLiveData.observe(this, Observer { it ->
             when(it){
                 is LoginSuccess -> {
-                    //TODO Navigate
+                    MaterialAlertDialogBuilder(this)
+                        .setTitle("Connection")
+                        .setMessage("Compte trouvé")
+                        .setPositiveButton("OK") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                    val monIntent : Intent =  Intent(this, MainActivityApi::class.java)
+                    startActivity(monIntent)
                 }
                 LoginError -> {
                     MaterialAlertDialogBuilder(this)
@@ -33,7 +42,11 @@ class MainActivity : AppCompatActivity() {
             }
         })
         login_button.setOnClickListener {
-            mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
+            mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString().trim())
+        }
+        create_account_button.setOnClickListener(){
+            val monIntent : Intent =  Intent(this,MainActivityRegister::class.java)
+            startActivity(monIntent)
         }
     }
 }

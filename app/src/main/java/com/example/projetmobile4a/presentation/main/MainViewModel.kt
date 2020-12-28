@@ -31,4 +31,9 @@ class MainViewModel (
             }
         }
     }
+    fun onClickedLoginAccount(user: User){
+        viewModelScope.launch(Dispatchers.IO) {
+            createUserUseCase.invoke(user)
+        }
+    }
 }
