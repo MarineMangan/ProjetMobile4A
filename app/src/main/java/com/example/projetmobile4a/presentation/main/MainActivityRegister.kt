@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
+import androidx.appcompat.widget.Toolbar
 import com.example.projetmobile4a.domain.entity.User
 import com.example.projetmobile4a.R
 import kotlinx.android.synthetic.main.activity_main_register.*
@@ -31,5 +32,9 @@ class MainActivityRegister : AppCompatActivity() {
                 Toast.makeText(applicationContext,"Add a user and a password",Toast.LENGTH_SHORT).show()
             }
         }
+        val toolbar: Toolbar =findViewById(R.id.my_toolbar)
+        setSupportActionBar(toolbar)
+        val actionBar=supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }

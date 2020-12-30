@@ -6,12 +6,18 @@
         android:name=".injection.EsieaApplication"
         android:allowBackup="true"
         android:icon="@mipmap/mon_icone"
-        android:label="@string/app_name"
+        android:label="CountriesList"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".presentation.main.MainActivityApi"></activity>
-        <activity android:name=".presentation.main.MainActivityRegister" />
+        <activity android:name=".presentation.main.MainActivityRegister"
+            android:label="Main_Activity_Register"
+            android:parentActivityName=".presentation.main.MainActivity"
+            >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".presentation.main.MainActivity" /></activity>
         <activity android:name=".presentation.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

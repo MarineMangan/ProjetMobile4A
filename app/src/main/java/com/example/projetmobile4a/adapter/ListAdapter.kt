@@ -19,10 +19,12 @@ class ListAdapter(val items: MutableList<Countries>?, val context: Context) : Re
         // each data item is just a string in this case
         var txtHeader: TextView
         var txtFooter: TextView
+        var txtFooter2: TextView
 
         init {
-            txtHeader = layout.findViewById<View>(R.id.firstLine) as TextView
-            txtFooter = layout.findViewById<View>(R.id.secondLine) as TextView
+            txtHeader = layout.findViewById<View>(R.id.countrie_name) as TextView
+            txtFooter = layout.findViewById<View>(R.id.countrie_capital) as TextView
+            txtFooter2 = layout.findViewById<View>(R.id.countrie_region) as TextView
         }
     }
 
@@ -61,7 +63,8 @@ class ListAdapter(val items: MutableList<Countries>?, val context: Context) : Re
         // - replace the contents of the view with that element
         val name: Countries = values!!.get(position)
         holder.txtHeader.text = name.getName()
-        holder.txtFooter.text = name.getName()
+        holder.txtFooter.text = name.getCapital()
+        holder.txtFooter2.text = name.getRegion()
     }
 
     // Return the size of your dataset (invoked by the layout manager)

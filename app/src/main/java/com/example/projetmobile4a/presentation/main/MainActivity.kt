@@ -3,6 +3,10 @@ package com.example.projetmobile4a.presentation.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import androidx.appcompat.widget.ShareActionProvider
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.MenuItemCompat
 import androidx.lifecycle.Observer
 import com.example.projetmobile4a.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -48,5 +52,20 @@ class MainActivity : AppCompatActivity() {
             val monIntent : Intent =  Intent(this,MainActivityRegister::class.java)
             startActivity(monIntent)
         }
+        val toolbar: Toolbar =findViewById(R.id.my_toolbar)
+        setSupportActionBar(toolbar)
+
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val shareItem=menu?.findItem(R.id.action_share)
+        val myShareActionProvider= MenuItemCompat.getActionProvider(shareItem) as ShareActionProvider
+        val myShareIntent =Intent(Intent.ACTION_SEND)
+        val Test = "test"
+        myShareIntent.setType("text/*")
+        myShareIntent.putExtra(Intent.EXTRA_STREAM,Test)
+        myShareActionProvider.setShareIntent(myShareIntent)
+        myShareIntent.putExtra(Intent.EXTRA_STREAM,Test)
+        myShareActionProvider.setShareIntent(myShareIntent)
+        return true
     }
 }
