@@ -1,6 +1,7 @@
 # ProjetMobile4A
 
-Ceci est un projet développé par Marine Mangan
+Ceci est un projet développé par Marine Mangan.
+##
 Il s'agit d'une application mobile développer en kotlin faisant appel à un api comportant des informations sur les différents pays du monde. Voici les notions techniques abordés dans ce projet : 
 	◦ Architecture MVVM
 	◦	Clean Architecture
