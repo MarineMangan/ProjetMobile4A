@@ -56,16 +56,16 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val shareItem=menu?.findItem(R.id.action_share)
-        val myShareActionProvider= MenuItemCompat.getActionProvider(shareItem) as ShareActionProvider
-        val myShareIntent =Intent(Intent.ACTION_SEND)
-        val Test = "test"
-        myShareIntent.setType("text/*")
-        myShareIntent.putExtra(Intent.EXTRA_STREAM,Test)
-        myShareActionProvider.setShareIntent(myShareIntent)
-        myShareIntent.putExtra(Intent.EXTRA_STREAM,Test)
-        myShareActionProvider.setShareIntent(myShareIntent)
-        return true
-    }
+    //override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+       // val shareItem=menu?.findItem(R.id.action_share)
+       // val myShareActionProvider= MenuItemCompat.getActionProvider(shareItem) as ShareActionProvider
+       // val myShareIntent =Intent(Intent.ACTION_SEND)
+       // val Test = "test"
+       // myShareIntent.setType("text/*")
+       // myShareIntent.putExtra(Intent.EXTRA_STREAM,Test)
+        //myShareActionProvider.setShareIntent(myShareIntent)
+        //myShareIntent.putExtra(Intent.EXTRA_STREAM,Test)
+        //myShareActionProvider.setShareIntent(myShareIntent)
+        //return true
+   // }
 }
